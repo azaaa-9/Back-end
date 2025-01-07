@@ -32,7 +32,7 @@ app.get("/movies/create", (req, res)=> {
     const movieString = JSON.stringify(movies, null, 4);
     fs.writefilesync("data/movies.json", movieString);
 
-    res.json({message: "Success"})
+    res.json({message: "done"})
 });
 
 app.listen(port, ()=> {
