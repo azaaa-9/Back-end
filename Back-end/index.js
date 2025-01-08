@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(cors());
  
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello");
 });
  
 app.get("/movies", (req, res) => {
@@ -25,7 +25,7 @@ app.get("/movies/details", (req, res) => {
   res.json({ message: selectedItem });
 });
  
-app.get("/movies/create", (req, res) => {
+app.post("/movies/create", (req, res) => {
   console.log(req.query);
   const { name } = req.query;
   const data = fs.readFileSync("data/movies.json", "utf8");
@@ -47,7 +47,7 @@ app.get("/movies/update", (req, res) => {
   res.json({ message: "Updated" });
 });
  
-app.get("/movies/delete", (req, res) => {
+app.delete("/movies/delete", (req, res) => {
   const { name } = req.query;
   const data = fs.readFileSync("data/movies.json", "utf8");
   const movies = JSON.parse(data);
